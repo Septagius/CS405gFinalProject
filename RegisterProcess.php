@@ -16,7 +16,7 @@ $midName = filter_var($_POST['mname'], FILTER_SANITIZE_STRING);
 $age = filter_var($_POST['age'], FILTER_SANITIZE_STRING);
 $gender = $_POST['gender'];
 
-$insertPrep= $conn->prepare("INSERT INTO book_db.users (email, password, role, fname, mname, lname, age, gender) VALUES (:email, :password, :role, :fname, :mname, :lname, :age, :gender)");
+$insertPrep = $conn->prepare("INSERT INTO book_db.users (email, password, role, fname, mname, lname, age, gender) VALUES (:email, :password, :role, :fname, :mname, :lname, :age, :gender)");
 $insertPrep->bindParam(":email",$email);
 $insertPrep->bindParam(":password", $password);
 $insertPrep->bindParam(":role", $role);
@@ -32,3 +32,6 @@ catch (PDOEXception $insertPrepError){
     echo "ERROR: " . $insertPrepError->getMessage();
     exit();
 }
+echo "Registration successful!. Please go back and login.";
+?>
+<a href="Login.php">Back to login</a>
