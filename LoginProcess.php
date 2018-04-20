@@ -28,7 +28,7 @@ foreach($record as $r){
     if($email == $loginEmail && $password == $loginPassword){
         header("Location: storefront.html");
         if($role == 'Manager'){
-            $_SESSION['username']=$email;
+            //$_SESSION['username']=$email;
             $_SESSION['role']=$role;
         }
     }
